@@ -7,29 +7,41 @@
     <script src="./src/mode-javascript.js" charset="utf-8"></script>
     <script src="./src/theme-twilight.js" charset="utf-8"></script>
     <script src="https://code.jquery.com/jquery-1.11.3.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <meta charset="utf-8">
     <style media="screen">
-    .left{
-      /*position: relative;*/
-      float: left;
-      width: 50%;
-      height: 100%;
-    }
+
       #editor {
         position: absolute;
-        width: 100%;
+        width: 50%;
         height: 100%;
         z-index: 0;
         padding: 0px;
         /*float: left;*/
       }
       #tester{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 200;
+        /*color: white;*/
         /*position:relative;*/
         /*float:left;*/
         /*z-index: 1;*/
       }
       #grades{
 
+      }
+      #Output{
+        position: absolute;
+        z-index: 200;
+        bottom: 0px;
+        right: 0px;
+        width:50%;
+        /*float: right;*/
+        height: 50%;
+        background-color: #d6d6d6;
+        color: black;
       }
     </style>
     <title></title>
@@ -39,24 +51,40 @@
 <pre>
 /*
   Text between the slash-star above and the star-slash below is ignored by
-  the computer. Text like this is used by programmers to communicate their
-  intent and design goals with each other (and also with their future selves -
-  it's easy to forget!)
+  the computer. Text like this is used to communicate the intent and design
+  goals of a piece of code.
 
   Text that follows a // is also ignored by the computer.
 */
 
+/* Question 1
+
+*/
+
+/* Question 7
+
+*/
 function upperBound(x){
   // YOUR CODE HERE
 }
+
+/* Question 8
+
+*/
 function lowerBound(x){
   // YOUR CODE HERE
 }
 
+/* Question 9
+
+*/
 function newGuess(lowBound, highBound){
   // YOUR CODE HERE
 }
 
+/* Question 10
+
+*/
 function squareRoot(x){
   // YOUR CODE HERE
 }
@@ -64,18 +92,18 @@ function squareRoot(x){
 
     </div>
 
-    <div style="position: absolute; top: 20px; right: 20px; z-index: 200; color: white;">
+    <div id="tester" >
 
-      Test upperBound() with input: <input type="text" id="ubIn">
-      <button type="button" name="button" onclick="testUB()">Test</button>
+      Run upperBound() with input: <input type="text" id="ubIn">
+      <button type="button" name="button" onclick="testUB()">upperBound()</button>
       <br>
-      Test lowerBound() with input: <input type="text" name="" id="lbIn">
-      <button type="button" name="button" onclick="testLB()">Test</button>
+      Run lowerBound() with input: <input type="text" name="" id="lbIn">
+      <button type="button" name="button" onclick="testLB()">lowerBound()</button>
       <br>
 
     </div>
 
-    <div id="Output" style="position: absolute; z-index: 200; bottom: 0px; right: 0px; width:50%; float: right; height: 50%; background-color: white; color: black;">
+    <div id="Output" style="">
 
     </div>
 
@@ -95,30 +123,33 @@ function squareRoot(x){
       // lowerBound = undefined;
       // guess = undefined;
       var userCode = editor.getValue();
-
       eval(userCode);
-
-
     }
     function testUB(){
-      print("can i print");
+      //print("can i print");
       //compile();
-
       eval(editor.getValue());
 
       var input = $('#ubIn').val();
       input = parseInt(input);
       var output = upperBound(input);
 
-      //print("upperBound(" + input + ") returned " + output);
-      alert("upperBound(" + input + ") returned " + output);
+      print("upperBound(" + input + ") returned " + output);
+      //alert("upperBound(" + input + ") returned " + output);
     }
     function testLB(){
+      eval(editor.getValue());
 
+      var input = $('#lbIn').val();
+      input = parseInt(input);
+      var output = lowerBound(input);
+
+      print("lowerBound(" + input + ") returned " + output);
     }
     function print(text){
       console.log(text);
       $("#Output").append(text);
+      $('#Output').append(document.createElement('br'));
     }
   </script>
 </html>
