@@ -110,7 +110,7 @@ function squareRoot(x){
     </div>
 
     <div id="Output" style="">
-      <input type="text">
+      <input id="CommandLine" type="text" >
 
     </div>
 
@@ -123,6 +123,19 @@ function squareRoot(x){
 
     var jsMode = ace.require("ace/mode/javascript").Mode;
     editor.getSession().setMode(new jsMode());
+
+    $('#CommandLine').keyup(function(event){
+      if (event.keyCode === 13){
+        repl();
+      }
+    });
+
+    function repl(){
+      //alert('hey');
+      eval(editor.getValue());
+      var output = eval($('#CommandLine').val());
+      print(output);
+    }
 
     function compile(){
       // squareRoot = undefined;
