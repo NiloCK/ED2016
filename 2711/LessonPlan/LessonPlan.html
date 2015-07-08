@@ -102,9 +102,11 @@ function squareRoot(x){
     }
     function testUB(){
       print("can i print");
-      compile();
+      //compile();
 
-      var input = $('#ubIn').valueOf()
+      eval(editor.getValue());
+
+      var input = $('#ubIn').val();
       input = parseInt(input);
       var output = upperBound(input);
 
