@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- // <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/ace/1.1.9/ace.js"></script> -->
+    <!-- // <script type="text/javascript" src="ace/ace.js"></script> -->
+    <script src="./src/ace.js" charset="utf-8"></script>
+    <script src="./src/mode-javascript.js" charset="utf-8"></script>
+    <script src="./src/theme-twilight.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.js" charset="utf-8"></script>
+    <meta charset="utf-8">
+    <style media="screen">
+    .left{
+      /*position: relative;*/
+      float: left;
+      width: 50%;
+      height: 100%;
+    }
+      #editor {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        padding: 0px;
+        /*float: left;*/
+      }
+      #tester{
+        /*position:relative;*/
+        /*float:left;*/
+        /*z-index: 1;*/
+      }
+      #grades{
+
+      }
+    </style>
+    <title></title>
+  </head>
+  <body>
+    <div id="editor">
+<pre>
+/*
+  Text between the slash-star above and the star-slash below is ignored by
+  the computer. Text like this is used by programmers to communicate their
+  intent and design goals with each other (and also with their future selves -
+  it's easy to forget!)
+
+  Text that follows a // is also ignored by the computer.
+*/
+
+function upperBound(x){
+  // YOUR CODE HERE
+}
+function lowerBound(x){
+  // YOUR CODE HERE
+}
+
+function newGuess(lowBound, highBound){
+  // YOUR CODE HERE
+}
+
+function squareRoot(x){
+  // YOUR CODE HERE
+}
+</pre>
+
+    </div>
+
+    <div style="position: absolute; top: 20px; right: 20px; z-index: 200; color: white;">
+
+      Test upperBound() with input: <input type="text" id="ubIn">
+      <button type="button" name="button" onclick="testUB()">Test</button>
+      <br>
+      Test lowerBound() with input: <input type="text" name="" id="lbIn">
+      <button type="button" name="button" onclick="testLB()">Test</button>
+      <br>
+
+    </div>
+
+    <div id="Output" style="position: absolute; z-index: 200; bottom: 0px; right: 0px; width:50%; float: right; height: 50%; background-color: white; color: black;">
+
+    </div>
+
+  </body>
+  <script type="text/javascript">
+
+
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+
+    var jsMode = ace.require("ace/mode/javascript").Mode;
+    editor.getSession().setMode(new jsMode());
+
+    function compile(){
+      // squareRoot = undefined;
+      // upperBound = undefined;
+      // lowerBound = undefined;
+      // guess = undefined;
+      var userCode = editor.getValue();
+
+      eval(userCode);
+
+
+    }
+    function testUB(){
+      print("can i print");
+      compile();
+
+      var input = $('#ubIn').valueOf()
+      input = parseInt(input);
+      var output = upperBound(input);
+
+      //print("upperBound(" + input + ") returned " + output);
+      alert("upperBound(" + input + ") returned " + output);
+    }
+    function testLB(){
+
+    }
+    function print(text){
+      console.log(text);
+      $("#Output").append(text);
+    }
+  </script>
+</html>
