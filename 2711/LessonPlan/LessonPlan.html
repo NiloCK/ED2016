@@ -1,66 +1,50 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- // <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/ace/1.1.9/ace.js"></script> -->
-    <!-- // <script type="text/javascript" src="ace/ace.js"></script> -->
-    <script src="./src/ace.js" charset="utf-8"></script>
-    <script src="./src/mode-javascript.js" charset="utf-8"></script>
-    <script src="./src/theme-twilight.js" charset="utf-8"></script>
-    <script src="https://code.jquery.com/jquery-1.11.3.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="LessonPlan.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <meta charset="utf-8">
-    <style media="screen">
-
-      #editor {
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 50%;
-        padding: 0px;
-      }
-      #TopRight{
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 50%;
-        width: 50%;
-        background: #ecc;
-      }
-      #Output{
-        overflow-y: auto;
-        text-align: left;
-        position: absolute;
-        width: 50%;
-        top: 50%;
-        right: 0;
-        bottom: 25px;
-        max-height: 100%;
-      }
-      #CommandLine {
-        position: absolute;
-        background-color: #fff;
-        width: 50%;
-        bottom: 0;
-        left: 50%;
-        height: 25px;
-      }
-    </style>
   </head>
   <body>
     <div id="editor">
 <pre>
+//////////////////////////////////////////////
+// Section One - Introduction to JavaScript //
+//////////////////////////////////////////////
+
 /*
   Text between the slash-star above and the star-slash below is ignored by
-  the computer. Text like this is used to communicate the intent and design
-  goals of a piece of code.
+  the computer. Text that follows // on a line is also ignored by the computer.
 
-  Text that follows a // is also ignored by the computer.
+  Text like this is used to communicate the intent and design goals of a
+  piece of code and is called 'comments'.
+
+  Comments are usually displayed in a muted colour.
 */
 
-/* Question 1
+/* Question 1:
+   Computer programs are made of functions. Sometimes a user
+   calls a function, and sometimes functions call each other.
+
+   To call a function in Javascript, use the function's name
+   followed by parenthesis. Type callMeMaybe() into the white
+   input bar on the lower right of the page and hit 'enter' to
+   call this function and complete question one.
+
+   (That input on the lower right is called a command line.)
+*/
+function callMeMaybe(){
+    calledMe = true;
+    updateGrades();
+    return "This is crazy!";
+}
+
+/* Question 2:
 
 */
+//////////////////////////////////////////////////
+// Section Two - Writing a Square Root function //
+//////////////////////////////////////////////////
 
 /* Question 7
 
@@ -93,80 +77,34 @@ function squareRoot(x){
 
     </div>
 
-    <div id="TopRight" >
+    <div id="TopRight">
+      <div id="Instructions">
+        <h3>Square Roots with JavaScript</h3>
 
-      Run upperBound() with input: <input type="text" id="ubIn">
-      <button type="button" name="button" onclick="testUB()">upperBound()</button>
-      <br>
-      Run lowerBound() with input: <input type="text" name="" id="lbIn">
-      <button type="button" name="button" onclick="testLB()">lowerBound()</button>
-      <br>
-
+      </div>
+      <div id="Grades">
+        <ol>
+          <li id="grade1"></li>
+          <li id="grade2"></li>
+          <li id="grade3"></li>
+          <li id="grade4"></li>
+          <li id="grade5"></li>
+          <li id="grade6"></li>
+          <li id="grade7"></li>
+          <li id="grade8"></li>
+          <li id="grade9"></li>
+          <li id="grade10"></li>
+        </ol>
+      </div>
     </div>
 
     <div id="Output"></div>
     <input id="CommandLine" type="text">
 
   </body>
-  <script type="text/javascript">
-
-
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/twilight");
-
-    var jsMode = ace.require("ace/mode/javascript").Mode;
-    editor.getSession().setMode(new jsMode());
-
-    $('#CommandLine').keyup(function(event){
-      if (event.keyCode === 13){
-        repl();
-      }
-    });
-
-    function repl(){
-      eval(editor.getValue());
-      var output = eval($('#CommandLine').val());
-      print(output);
-    }
-
-    function compile(){
-      // squareRoot = undefined;
-      // upperBound = undefined;
-      // lowerBound = undefined;
-      // guess = undefined;
-      var userCode = editor.getValue();
-      eval(userCode);
-    }
-    function testUB(){
-      //print("can i print");
-      //compile();
-      eval(editor.getValue());
-
-      var input = $('#ubIn').val();
-      input = parseInt(input);
-      var output = upperBound(input);
-
-      print("upperBound(" + input + ") returned " + output);
-      //alert("upperBound(" + input + ") returned " + output);
-    }
-    function testLB(){
-      eval(editor.getValue());
-
-      var input = $('#lbIn').val();
-      input = parseInt(input);
-      var output = lowerBound(input);
-
-      print("lowerBound(" + input + ") returned " + output);
-    }
-    function print(text){
-      console.log(text);
-      $("#Output").append(text);
-      $('#Output').append(document.createElement('br'));
-    }
-    $('.ace_function').click(function(){
-      eval(editor.getValue());
-      result = eval($(this).text() + "();")
-      print(result);
-    });
-  </script>
+  <script src="./src/ace.js" charset="utf-8"></script>
+  <script src="./src/mode-javascript.js" charset="utf-8"></script>
+  <script src="./src/theme-twilight.js" charset="utf-8"></script>
+  <script src="https://code.jquery.com/jquery-1.11.3.js" charset="utf-8"></script>
+  <script src="LessonPlan.js"></script>
 </html>
