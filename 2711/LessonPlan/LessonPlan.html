@@ -17,10 +17,7 @@
         top: 0;
         bottom: 0;
         width: 50%;
-        /*height: 100%;*/
-        /*z-index: 0;*/
         padding: 0px;
-        /*float: left;*/
       }
       #TopRight{
         position: absolute;
@@ -30,24 +27,7 @@
         width: 50%;
         background: #ecc;
       }
-      /*#Console{
-        position: absolute;
-        z-index: 200;
-        right: 0;
-        top: 50%  ;
-        bottom: 25px;
-        width:50%;
-        overflow-y: scroll;
-        height: 50%;
-        max-height: 50%;
-        background-color: #d6d6d6;
-        color: black;
-      }*/
       #Output{
-        /*position: relative;*/
-        /*position: relative;/*/
-        /*display: table-row;*/
-        /*overflow-y: scroll;*/
         overflow-y: auto;
         text-align: left;
         position: absolute;
@@ -64,11 +44,6 @@
         bottom: 0;
         left: 50%;
         height: 25px;
-        /*position: absolute;*/
-        /*position: fixed;*/
-        /*position: relative;*/
-        /*bottom: 0px;*/
-        /*display: table-row;*/
       }
     </style>
   </head>
@@ -129,12 +104,8 @@ function squareRoot(x){
 
     </div>
 
-    <!-- <div id="Console" style=""> -->
-      <!-- <div id="ConsoleWrapper"> -->
-        <div id="Output"></div>
-        <input id="CommandLine" type="text">
-      <!-- </div> -->
-    <!-- </div> -->
+    <div id="Output"></div>
+    <input id="CommandLine" type="text">
 
   </body>
   <script type="text/javascript">
@@ -153,7 +124,6 @@ function squareRoot(x){
     });
 
     function repl(){
-      //alert('hey');
       eval(editor.getValue());
       var output = eval($('#CommandLine').val());
       print(output);
