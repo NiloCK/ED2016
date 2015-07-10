@@ -13,44 +13,64 @@
 
       #editor {
         position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
         width: 50%;
-        height: 100%;
-        z-index: 0;
+        /*height: 100%;*/
+        /*z-index: 0;*/
         padding: 0px;
         /*float: left;*/
       }
-      #tester{
+      #TopRight{
         position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 200;
-        /*color: white;*/
-        /*position:relative;*/
-        /*float:left;*/
-        /*z-index: 1;*/
+        right: 0;
+        top: 0;
+        bottom: 50%;
+        width: 50%;
+        background: #ecc;
       }
-      #grades{
-
-      }
-      #Output{
+      /*#Console{
         position: absolute;
         z-index: 200;
-        bottom: 0px;
-        right: 0px;
+        right: 0;
+        top: 50%  ;
+        bottom: 25px;
         width:50%;
         overflow-y: scroll;
         height: 50%;
+        max-height: 50%;
         background-color: #d6d6d6;
         color: black;
-      }
-      #Output input {
-        background-color: #fff;
-        width: 100%;
+      }*/
+      #Output{
+        /*position: relative;*/
+        /*position: relative;/*/
+        /*display: table-row;*/
+        /*overflow-y: scroll;*/
+        overflow-y: auto;
+        text-align: left;
         position: absolute;
-        bottom: 0px;
+        width: 50%;
+        top: 50%;
+        right: 0;
+        bottom: 25px;
+        max-height: 100%;
+      }
+      #CommandLine {
+        position: absolute;
+        background-color: #fff;
+        width: 50%;
+        bottom: 0;
+        left: 50%;
+        height: 25px;
+        /*position: absolute;*/
+        /*position: fixed;*/
+        /*position: relative;*/
+        /*bottom: 0px;*/
+        /*display: table-row;*/
       }
     </style>
-    <title></title>
   </head>
   <body>
     <div id="editor">
@@ -98,7 +118,7 @@ function squareRoot(x){
 
     </div>
 
-    <div id="tester" >
+    <div id="TopRight" >
 
       Run upperBound() with input: <input type="text" id="ubIn">
       <button type="button" name="button" onclick="testUB()">upperBound()</button>
@@ -109,10 +129,12 @@ function squareRoot(x){
 
     </div>
 
-    <div id="Output" style="">
-      <input id="CommandLine" type="text" >
-
-    </div>
+    <!-- <div id="Console" style=""> -->
+      <!-- <div id="ConsoleWrapper"> -->
+        <div id="Output"></div>
+        <input id="CommandLine" type="text">
+      <!-- </div> -->
+    <!-- </div> -->
 
   </body>
   <script type="text/javascript">
@@ -171,5 +193,10 @@ function squareRoot(x){
       $("#Output").append(text);
       $('#Output').append(document.createElement('br'));
     }
+    $('.ace_function').click(function(){
+      eval(editor.getValue());
+      result = eval($(this).text() + "();")
+      print(result);
+    });
   </script>
 </html>
