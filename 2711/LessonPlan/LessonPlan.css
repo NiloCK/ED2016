@@ -20,7 +20,7 @@
 	top: 0;
 	bottom: 0;
 	width: 60%;
-	background: #cec;
+	background: #fff;
 }
 #Grades{
 	position: absolute;
@@ -31,6 +31,9 @@
 	width: 40%;
 
 	background: #cce;
+}
+#Grades li {
+	font-size: larger;
 }
 #Output{
 	overflow-y: auto;
@@ -52,7 +55,7 @@
 	height: 25px;
 }
 .ace_function{
-	cursor: pointer;;
+	cursor: pointer;
 }
 button{
 	cursor: pointer;
