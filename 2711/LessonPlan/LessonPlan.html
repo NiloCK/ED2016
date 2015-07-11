@@ -36,6 +36,7 @@
 function callMeMaybe(){
     calledMe = true;
     updateGrades();
+    print("I just met you");
     return "This is crazy!";
 }
 
@@ -80,9 +81,14 @@ function squareRoot(x){
     <div id="TopRight">
       <div id="Instructions">
         <h3>Square Roots with JavaScript</h3>
-
+        <br>
+        <p>The window on the left is a code editor, and it contains the instructions and problems for this assignment.</p>
+        <p>As you work through the document and complete questions, make calls to <code>updateGrades()</code> in order to see how you're doing - the grades are on the right. (You'll learn how to make that call as you go).</p>
+        <p>Computers are <strong>really</strong> picky about details, so look carefully when your code isn't behaving the way you think it should be. In particular, upper and lower case matter. <code>callmemaybe()</code> will not work if you mean to write <code>callMeMaybe()</code>.</p>
+        <p>That said, it's often very difficult to spot mistakes in code. Don't hesitate to check with your teacher or another student when you find yourself stuck.</p>
       </div>
       <div id="Grades">
+        <h3>Progress:</h3>
         <ol>
           <li id="grade1"></li>
           <li id="grade2"></li>
