@@ -52,7 +52,7 @@ function updateGrades(){
   var grades = [];
 
   // q1
-  grades.push(calledMe ? 100 : 0);
+  grades.push(calledMe ? "\u2713" : "");
   //q2
 
 
