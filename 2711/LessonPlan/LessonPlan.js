@@ -1,3 +1,4 @@
+/// <reference path="src/ace.js"/>
 
 var editor = ace.edit("editor");
 
@@ -52,12 +53,55 @@ function updateGrades(){
   var grades = [];
 
   // q1
-  grades.push(calledMe ? "\u2713" : "");
-  //q2
-
-
-
-  for (var i = 1; i <= 1; i++){
+  for (var i=1; i<=10; i++){
+    grades.push(unitTests[i]() ? "\u2713" : "");
     $('#grade' + i).text(grades[i-1].toString());
+  }
+}
+
+var unitTests = {
+  1: function(){
+    return calledMe;
+  },
+  2: function(){
+    eval(editor.getValue());
+
+    var cases = [-5, -3, -1, 0, 5, 2342, 80000];
+
+    try{
+      for(var i=0; i<cases.length; i++){
+        if (twoMoreThan(cases[i]) != cases[i] + 2 ||
+            oneThirdOf(cases[i]) != cases[i] / 3){
+              return false;
+            }
+      }
+      return true;
+    } catch(e) {
+      return false;
+    }
+  },
+  3: function(){
+    return false;
+  },
+  4: function(){
+    return false;
+  },
+  5: function(){
+    return false;
+  },
+  6: function(){
+    return false;
+  },
+  7: function(){
+    return false;
+  },
+  8: function(){
+    return false;
+  },
+  9: function(){
+    return false;
+  },
+  10: function(){
+    return false;
   }
 }
