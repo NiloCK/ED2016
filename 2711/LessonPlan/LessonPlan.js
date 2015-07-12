@@ -60,18 +60,16 @@ function updateGrades(){
 }
 
 var unitTests = {
+  cases: [ -5, -3, -1, 0, 5, 2342, 80000 ],
   1: function(){
     return calledMe;
   },
   2: function(){
     eval(editor.getValue());
-
-    var cases = [-5, -3, -1, 0, 5, 2342, 80000];
-
     try{
-      for(var i=0; i<cases.length; i++){
-        if (twoMoreThan(cases[i]) != cases[i] + 2 ||
-            oneThirdOf(cases[i]) != cases[i] / 3){
+      for(var i=0; i<this.cases.length; i++){
+        if (twoMoreThan(this.cases[i]) != this.cases[i] + 2 ||
+            oneThirdOf(this.cases[i]) != this.cases[i] / 3){
               return false;
             }
       }
@@ -81,7 +79,19 @@ var unitTests = {
     }
   },
   3: function(){
-    return false;
+    eval(editor.getValue());
+    try{
+      for(var i=0; i<this.cases.length; i++){
+        for(var j=0; j<this.cases.length; j++){
+          if ((this.cases[i] + this.cases[j]) / 2 != average(this.cases[i], this.cases[j]) ){
+            return false;
+          }
+        }
+      }
+      return true;
+    } catch (e) {
+      return false;
+    }
   },
   4: function(){
     return false;
