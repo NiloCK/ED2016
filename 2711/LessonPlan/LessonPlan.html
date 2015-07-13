@@ -23,6 +23,7 @@
 */
 
 /* Question 1:
+
    Computer programs are made of functions. Sometimes a user
    calls a function, and sometimes functions call each other.
 
@@ -49,6 +50,7 @@ function callMeMaybe(){
 */
 
 /* Question 2:
+
    callMeMaybe() is a function that called for no arguments.
    This means that you didn't have to pass anything into it -
    it just worked on its own. Some functions need an input,
@@ -93,6 +95,7 @@ function oneThirdOf(x){
 */
 
 /* Question 3:
+
    Functions can take any number of arguments - they just
    need to be defined that way. The sum(a,b) function below
    is an example.
@@ -107,6 +110,59 @@ function sum(a, b){
   return a + b;
 }
 // YOUR CODE HERE
+
+/* Question 4:
+
+   Besides arithmetic, Javascript can also do comparisons
+   between values. Try calling biggerThanTen() with different
+   inputs. This is useful when a program needs to make
+   decisions. Try running biggest() with some different inputs
+   to get a feel for how the if/else and comparison syntax work.
+
+   When you get the hang of it, complete the function tooSmall,
+   which checks to see if the input 'a' is too small to be the
+   square root of 'x'. EG, tooSmall(3,16) should return true because
+   3 is smaller than the square root of 16. tooSmall(4,16) should
+   return false, because 4 is not smaller than the square root of 16.
+*/
+function biggerThanTen(x){
+  return x > 10;
+}
+function biggest(a, b){
+  if (a > b){
+    print(a + " is bigger than " + b);
+  } else {
+    print(b + " is bigger than " a);
+  }
+
+  if ( a + b > 5 ){
+    print(a + " + " + b + " is bigger than five!");
+  }
+
+  return "There is a bug in this function. Can you make it say something silly?";
+}
+function tooSmall(a, x){
+    // YOUR CODE HERE
+}
+
+/* Question 5:
+
+
+*/
+function countdown(x){
+  if (biggerThanTen(x)){
+    return "That's too much! I won't count it!";
+  }
+
+  while (x >= 0){
+    print("X is now " + x);
+    x = x - 1;
+  }
+  return "After the loop is finished, x is " + x + ".";
+}
+
+/* Question 6:
+
 
 //////////////////////////////////////////////////
 // Section Two - Writing a Square Root function //

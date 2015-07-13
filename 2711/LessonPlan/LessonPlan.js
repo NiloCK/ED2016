@@ -94,7 +94,15 @@ var unitTests = {
     }
   },
   4: function(){
-    return false;
+    eval(editor.getValue());
+    try{
+      return (tooSmall(3.75,16) &&
+              tooSmall(4.99, 25) &&
+              !tooSmall(5, 25) &&
+              !tooSmall(10, 15) );
+    }catch(e){
+      return false;
+    }
   },
   5: function(){
     return false;
