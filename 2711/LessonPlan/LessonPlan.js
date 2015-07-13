@@ -111,15 +111,56 @@ var unitTests = {
     return false;
   },
   7: function(){
-    return false;
+    var rootCases = [0, 0.5, 1, 20, 25, 1000];
+    eval(editor.getValue());
+    try{
+
+    } catch (e) {
+      return false;
+    }
   },
   8: function(){
-    return false;
+    var rootCases = [0, 0.5, 1, 20, 25, 1000];
+    eval(editor.getValue());
+    try{
+
+    } catch (e) {
+      return false;
+    }
   },
   9: function(){
-    return false;
+    var guessCases = [
+      [0,1],
+      [4,4.000005],
+      [3,5],
+      [8.23425,8.234255]
+    ];
+    eval(editor.getValue());
+    try{
+      for (var i=0; i<guessCases.length; i++){
+        var guess = newGuess(guessCases[i][0], guessCases[i][1]);
+        if (guess < guessCases[i][0] ||
+            guess > guessCases[i][1] ){
+              return false;
+            }
+      }
+      return true;
+    } catch (e) {
+      return false;
+    }
   },
   10: function(){
-    return false;
+    var rootCases = [0, 0.5, 1, 20, 25, 1000];
+    eval(editor.getValue());
+    try{
+      for (var i=0; i<rootCases.length; i++){
+        if (Math.abs(Math.sqrt(rootCases[i]) - squareRoot(rootCases[i])) > 0.00001){
+          return false;
+        }
+      }
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
 }

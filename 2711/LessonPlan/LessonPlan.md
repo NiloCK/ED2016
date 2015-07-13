@@ -1,5 +1,7 @@
 # An Algorithmic Approach to Square Root Finding
 
+[Interactive Worksheet - Finding Square Roots with JavaScript](http://nilock.github.io/ED2016/2711/LessonPlan/LessonPlan.html)
+
 ## Background and Purpose
 
 One topic explored throughout the middle school mathematics curriculum is the notion of using 'benchmarks' in order to inform estimations. A particular case is to use perfect square benchmarks in order to estimate the value of unknown square roots.
@@ -14,7 +16,7 @@ This lesson uses this square-root estimation technique as a jumping off point in
 
 ## Intended Audience and Schedule
 
-This lesson is intended as a lecture / project for a senior high classroom. Activities surrounding the first two points (Algorithmic thinking, Computation as a medium for tool-making) should take an hour or less. The third point will take anywhere between half an hour and two hours depending on levels of supervision.
+This lesson is intended as a lecture / project for a senior high classroom. Activities surrounding the first two points (Algorithmic thinking, Computation as a medium for tool-making) should take an hour or less. The third point will take anywhere between one and three hours depending on levels of experience and supervision.
 
 There are no technical prerequisites other than knowing what is meant by a 'square root', so it is possible to deliver the same material in a middle school setting. Expectations will be lower in middle school; the programming should likely be abandoned altogether in favor of concentrating on group discussion to reason about and define the main points of the algorithmic solution.
 
@@ -56,11 +58,24 @@ Calculators with square root buttons should not be used - the temptation to 'pee
 
 #### Discussion (5-10 minutes)
 
-After the activity has concluded, discuss the method used, and discuss the existence of a calculator's square root button. This is a tool that all of the students have used
+After the activity has concluded, discuss the methods devised, and discuss the existence of a calculator's square root button. The calculator square root button is a tool that all of the students have used, but has likely been a completely opaque black box. Having completed the prior activity, students are well positioned to reason about how this calculation is performed. After some discussion of the technique used during the activity, students should be confident that the limiting factor in their own success was that they perform calculations very slowly, even when punching them into a calculator. Most students understand that computers perform computations very quickly. The joke goes, 'What do firefighters do?', 'fight fires', 'what do boxers do?', 'box', 'what do computers do?' ... Computers have long been ubiquitous enough that the literal meaning of the word itself has faded away from the object. This is an opportunity to remind them that everything that a computer does is the eventual consequence of basic arithmetic operations operating at extreme speeds.
+
+The basic sequence of the algorithm is:
+
+1. Define a range which contains the answer.
+2. Check a number inside this range by squaring it and comparing against the answer.
+3. Return to *1*, refining the range based on whether the guess was too big or too small.
+
+This repeats until the range is small enough that any number inside of it is close enough to being correct for our purposes. On a typical hand-held calculator, this means getting accurate enough to fill out the eight or ten digits that the display allows.
+
 
 ### Programming
 
-The programming exercise is meant to provide all of the necessary tools for students to complete a square root algorithm, but it should be expected that many students will require guidance and troubleshooting along the way. Sample solutions with explanatory remarks for each question follow.
+The programming exercise (linked at top) is meant to provide all of the necessary tools for students to complete a square root algorithm, but it should be expected that many students will require guidance and troubleshooting along the way. Sample solutions with explanatory remarks for each question follow.
+
+Some students will be interested to know that the programming language they are learning is responsible for most of the interactivity that they experience on the internet, and is in wide use in industry.
+
+When an industrious student discovers JavaScript's `Math.sqrt()` function through a search engine, remind them that the *construction* of the function is the point of the exercise. (If we were making chairs in the shop, would popping out to wal-mart and picking up a chair be a suitable submission?)
 
 Where a function is defined more than once in the same block, this represents equivalent solutions expressed with different semantics - think 'quarter after five' versus 'five fifteen'.
 
@@ -97,8 +112,41 @@ function average(x,y){
 
 ##### 4.
 
+```js
+function tooSmall(a, x){
+  return a * a < x;
+}
+function tooSmall(a,x){
+  var square = a * a;
+  return square < x;
+}
+```
+We check whether a is too small to be the root of x by squaring it and comparing that value against x. If the square of a is smaller than x, a is smaller than the root of x.
+
 ##### 5.
+
+(I haven't come up with a sensible question for this topic yet.)
+
 ##### 6.
+
+```js
+function sumFromOneTo(x){
+  if (biggerThanTen(x)){
+    return "It's too much! I won't add it!";
+  }
+  var sum = 0;
+
+  while(x > 0){
+    sum = sum + x;
+    x = x - 1;
+  }
+
+  return sum;
+}
+```
+
+
+
 ##### 7.
 
 ```js
@@ -151,12 +199,12 @@ function squareRoot(x){
   while(high - low > 0.0000001){
     var guess = newGuess(low, high); // (high + low) / 2
 
-    if (guess * guess > x){
+    if (guess * guess < x){ // or tooSmall(guess, x)
+      //guess is too small, so we use it as the new low bound
+      low = guess;
+    } else {
       //guess is too big, so we use it as the new high bound
       high = guess;
-    } else {
-      //guess is too low, so we use it as the new low bound
-      low - guess;
     }
   }
 

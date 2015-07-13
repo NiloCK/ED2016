@@ -147,7 +147,14 @@ function tooSmall(a, x){
 
 /* Question 5:
 
+  Sometimes we want a function to repeat a series of steps
+  many times. To do this, we use a loop structure. One type of
+  loop structure is the while() loop, which repeats as long as
+  the condition it is evaluating is true. Read countdown(x) and
+  try to figure out what it does. Try calling it with some
+  different inputs.
 
+  
 */
 function countdown(x){
   if (biggerThanTen(x)){
@@ -163,35 +170,49 @@ function countdown(x){
 
 /* Question 6:
 
+   All of the functions we have used so far have worked
+   with input values to produce the output directly, but
+   sometimes it is useful to create variables to store
+   extra information. This is done with the var keyword.
+
+   Using the countdown() function as a guide, complete the
+   sumFromOneTo(x) function so that it adds all the numbers
+   from one to x. Eg, sumFromOneTo(4) should return 10,
+   since 1 + 2 + 3 + 4 = 10.
+*/
+function sumFromOneTo(x){
+  if (biggerThanTen(x)){
+    return "It's too much! I won't add it!";
+  }
+  var sum = 0;
+
+  while(x > 0){
+    // YOUR CODE HERE
+  }
+
+  return sum;
+}
 
 //////////////////////////////////////////////////
 // Section Two - Writing a Square Root function //
 //////////////////////////////////////////////////
 
-/* Question 7
-
-*/
+/* Question 7 */
 function upperBound(x){
   // YOUR CODE HERE
 }
 
-/* Question 8
-
-*/
+/* Question 8 */
 function lowerBound(x){
   // YOUR CODE HERE
 }
 
-/* Question 9
-
-*/
+/* Question 9 */
 function newGuess(lowBound, highBound){
   // YOUR CODE HERE
 }
 
-/* Question 10
-
-*/
+/* Question 10 */
 function squareRoot(x){
   // YOUR CODE HERE
 }
