@@ -33,7 +33,8 @@ Begin with a question to the class:
 
 > Can anyone tell me the square root of 16?
 
-After getting a correct response, sketch a 4 by 4 square on the board, and use it to refresh the concept of square roots for those students in class who will benefit from it.
+After getting a correct response, sketch a 4 by 4 square on the board, and use it to refresh the concept of square roots.
+
  - A shape's "Area" refers to the number of 1x1 squares that fit inside of it
  - The large square has an area of 16
  - The width and height of this square are 4, resulting in 4 rows each with 4 little squares - 16 in total.
@@ -58,22 +59,24 @@ Calculators with square root buttons should not be used - the temptation to 'pee
 
 #### Discussion (5-10 minutes)
 
-After the activity has concluded, discuss the methods devised, and discuss the existence of a calculator's square root button. The calculator square root button is a tool that all of the students have used, but has likely been a completely opaque black box. Having completed the prior activity, students are well positioned to reason about how this calculation is performed. After some discussion of the technique used during the activity, students should be confident that the limiting factor in their own success was that they perform calculations very slowly, even when punching them into a calculator. Most students understand that computers perform computations very quickly. The joke goes, 'What do firefighters do?', 'fight fires', 'what do boxers do?', 'box', 'what do computers do?' ... Computers have long been ubiquitous enough that the literal meaning of the word itself has faded away from the object. This is an opportunity to remind them that everything that a computer does is the eventual consequence of basic arithmetic operations operating at extreme speeds.
+After the activity has concluded, discuss the methods devised, and discuss the existence of a calculator's square root button. The calculator square root button is a tool that all of the students have used, but has likely been a completely opaque black box. Having completed the prior activity, students are well positioned to reason about how this calculation is performed. After some discussion of the technique used during the activity, students should be confident that the limiting factor in their own success was that they perform calculations very slowly, even when punching them into a calculator. Most students understand that computers perform computations very quickly. The joke goes, 'What do firefighters do?', 'fight fires', 'what do boxers do?', 'box', 'what do computers do?' ... Computers have been ubiquitous enough that the literal meaning of the word has faded away from the object. This is an opportunity to remind them that everything that a computer does is the eventual consequence of basic arithmetic operations operating at extreme speeds.
 
 The basic sequence of the algorithm is:
 
 1. Define a range which contains the answer.
 2. Check a number inside this range by squaring it and comparing against the answer.
-3. Return to *1*, refining the range based on whether the guess was too big or too small.
+3. Return to step *1*, refining the range based on whether the guess was too big or too small.
 
 This repeats until the range is small enough that any number inside of it is close enough to being correct for our purposes. On a typical hand-held calculator, this means getting accurate enough to fill out the eight or ten digits that the display allows.
 
 
 ### Programming
 
-The programming exercise (linked at top) is meant to provide all of the necessary tools for students to complete a square root algorithm, but it should be expected that many students will require guidance and troubleshooting along the way. Sample solutions with explanatory remarks for each question follow.
+The programming exercise (linked at top) is meant to provide all of the necessary tools for students to complete a square root algorithm using JavaScript, but it should be expected that many students will require guidance and troubleshooting along the way. Sample solutions with explanatory remarks for each question follow.
 
-Some students will be interested to know that the programming language they are learning is responsible for most of the interactivity that they experience on the internet, and is in wide use in industry.
+Some students will be interested to know that the programming language they are learning is responsible for most of the interactivity that they experience on the internet, and is in wide use in industry. Some students will also be interested to know that there is no smoke and mirrors involved here - that the code written in the assignment is sincerely being run by the computer at face value.
+
+Instructors and network administrators may be interested to know that it's nigh impossible to write malicious code in JavaScript - there is no access to the file system of the computer, for instance. The worst that is likely to happen is a crashed browser.
 
 When an industrious student discovers JavaScript's `Math.sqrt()` function through a search engine, remind them that the *construction* of the function is the point of the exercise. (If we were making chairs in the shop, would popping out to wal-mart and picking up a chair be a suitable submission?)
 
