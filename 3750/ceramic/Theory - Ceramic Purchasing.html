@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -13,11 +13,43 @@
     <title>Theory - Drywall Materials Pricing</title>
   </head>
   <body>
-    <h1>Cost of Drywall Installation</h1>
+    <h1>Cost of Ceramic Installation</h1>
     <h2>Johnny Bungay & Colin Kennedy</h2>
-<br><br>
-    <h3>Materials Costs</h3>
+    <br><br>
+    <canvas id="canvas" width="750" height="525"></canvas>
+    <script type="text/javascript">
+      var canvas = document.getElementById('canvas');
+      var con = canvas.getContext('2d');
+
+      // 14 x 20
+
+        for (var i = 0; i <= 14; i++) {
+            for (var j = 0; j <= 20; j++) {
+
+  //              if (i < 2 || i > 12) {
+                    con.beginPath();
+                    con.moveTo(0, (i/14) * canvas.height );
+                    con.lineTo(canvas.width, (i/14)*canvas.height);
+                    con.stroke();
+//                }
+
+                //if (j < 2 || j > 18) {
+                    con.beginPath();
+                    con.moveTo((j / 20) * canvas.width, 0);
+                    con.lineTo((j / 20) * canvas.width, canvas.height);
+                    con.stroke();
+                //}
+
+            }
+        }
+
+
+    </script>
+
+    <!-- <h3>Materials Costs</h3>
+    <p>The border in the drawing </p> -->
     <table class="table">
+
 
       <tr>
         <th>Material</th>
@@ -25,44 +57,50 @@
       </tr>
 
       <tr>
-        <td>Drywall - 4 x 8 sheet (x13)</td>
+        <td>Ceramic Tile: 14*20*1.1 = 308 square feet</td>
         <td>
-          $173.29
-          <a href="http://www.homedepot.ca/product/5-8-in-sheetrock-ultralight-firecode-30-drywall-gypsum-panel-4-ft-x-8-ft/860336">
-            Home Depot - 5/8 in. Sheetrock Ultralight Gypsum Panel
-          </a>
-      </tr>
-      <tr>
-        <td>Drywall Screws</td>
-        <td>
-          $16.40
-          <a href="http://www.homedepot.ca/product/6-x-1-1-4-coarse-thread-drywall-screw-in-1000/908159">
-            Home Depot - 1000 6x1 1/4 Coarse Thread Drywall Screw
+          308 tiles / 16 (tiles/box) = 20 boxes
+          <br/>
+          20 * $35.20 = $704
+          <br/>
+          <a href="http://www.homedepot.ca/product/12-x-12-arno-riverbed-ceramic-16-sq-ft-case/953051">
+            12 x 12 Arno Riverbed Ceramic - (16 Sq. Ft./Case)
           </a>
         </td>
       </tr>
       <tr>
-        <td>Drywall Compound</td>
         <td>
-          $19.33
-          <a href="http://www.homedepot.ca/product/cgc-all-purpose-drywall-compound-ready-mixed-27-kg-carton/911171">
-            Home Depot - CGC All Purpose Drywall Compound, 27 KG.
+          Tile Adhesive: 280 square feet / 12 (square feet/gallon) = 23 gallons<br/>
+          (<a href="http://www.custombuildingproducts.com/TDS/TDS-127.pdf">Acrylpro Data Sheet</a>)
+        </td>
+        <td>
+          23 gallons / 3.5 (gallons/bucket) = 7 buckets<br/>
+          7 * $39.99 = $279.93<br/>
+          <a href="http://www.homedepot.ca/product/acrylpro-ceramic-tile-adhesive-type-i-35-gallon/921777">
+            AcrylPro Ceramic Tile Adhesive
           </a>
         </td>
       </tr>
       <tr>
-        <td>Drywall Tape</td>
         <td>
-          $5.02
-          <a href="http://www.homedepot.ca/product/cgc-paper-drywall-tape-2-1-16-in-x-250-ft-roll/911198">
-            Home Depot - CGC Paper Drywall Tape, 250 ft.
+          Grout - 28 lbs<br/>
+          (<a href="http://www.tecspecialty.com/customer-tools/coverage-calculator/">Coverage Calculator</a>)
+        </td>
+        <td>
+          28 lbs / 7 (lbs/pail) = 4 pails
+          <br/>
+          4 * $13.99 = $55.96
+          <br/>
+          <a href="http://www.homedepot.ca/product/333-alabaster-polyblend-sanded-grout-7lb/921833">
+            Alabaster - Polyblend Sanded Grout - 7lb
           </a>
         </td>
       </tr>
       <tr class="total">
         <td>Total:</td>
-        <td>$214.04</td>
+        <td>$1039.89</td>
       </tr>
+    </table>
 
   </body>
 </html>
